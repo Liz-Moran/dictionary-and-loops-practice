@@ -43,10 +43,27 @@ import student_data
 
 # print(student_data.students)
 students = student_data.students
-print(len(students))
+# print(len(students))
 print(students[0]['Combo,Name'])
 print(students[0]['Email'][0])
 print(students[0]['Email'][1])
+print(students[0]["LName"])
+print(students[0]["FName"])
+print(students[0]["GL"])
+print("------------------------")
+#get the second student's cpsid and first email and grade level and HR
+print(students[1]['GL'])
+print(students[1]['CPSID'])
+print(students[1]['HR'])
+print(students[1]['Email'][0])
+print("------------------------")
+#get the last student's cpsid and last email, GL, and HR
+print(students[-1]['CPSID'])
+print(students[-1]['Email'][-1])
+print(students[-1]['GL'])
+print(students[-1]['HR'])
+print("------------------------")
+
 
 # What is being counted?
 
@@ -68,11 +85,24 @@ print(students[0]['Email'][1])
 #and printing the name and email of the students
 #we are also printing a line of underscores to separate the students
 #we are also printing a line of underscores to separate the students
-for student in students:
-    print(student['Combo,Name'])
-    print(student['Email'][0])
-    print(student['Email'][1])
-    print("_"*25)
+# for student in students:
+#     print(student['Combo,Name'])
+#     print(student['Email'][0])
+#     print(student['Email'][1])
+#     print(student['HR'])
+#     print(student['GL'])
+#     print(student['CPSID'])
+#     if student['GL'] >= 10:
+#         print("You can go off campus")
+
+#     if student['LName'][0]== "R":
+#         print("Your name starts with R")
+#         print(student['Combo,Name'])
+#         print(student['HR'])
+    
+#     if student['LName'][0]== "L":
+#         break
+#     print("_"*25)
 
 # What does the loop variable student represent on each pass?
 
