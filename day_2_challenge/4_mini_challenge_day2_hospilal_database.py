@@ -132,4 +132,3 @@
 #   - A Triage Level
 # - The program must not crash if the nurse types a name incorrectly
 # - The program must display a clear error message instead
-

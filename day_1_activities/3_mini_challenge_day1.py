@@ -57,4 +57,45 @@
         #    - Display an error message saying the CPS ID is already taken
 
 
-
+import student_data2
+students = student_data2.students
+id=input("What is the students cps id?")
+for student in students:
+   if id == student['CPSID']:
+       print(student['CPSID'])
+       print("This works.")
+First_Name=input("What is the students first name?")
+for student in students:
+   if id == student['Fname']:
+       print(student['Fname'])
+       print("This works.")
+Last_Name=input("What is the students last name?")
+for student in students:
+   if Last_Name == student['LName']:
+       print(student['LName'])
+       print("This works.")
+Middle_Name=input("What is the students middle name?")
+for student in students:
+   if Middle_Name == student['MName']:
+       print(student['MName'])
+       print("This works.")
+Homeroom=input("What is the students homeroom?")
+for student in students:
+   if Homeroom == student ['HR']:
+       print(student['HR'])
+       print("This works.")
+Grade=input("What is the students name")
+for student in students:
+   if Grade == student['GL']:
+       print(student['GL'])
+       print("This works.")
+Primary_Email=input("What is the  students primary email?")
+for student in students:
+   if Primary_Email == student['Email'[0]]:
+       print(student['CPSID'])
+       print("This works.")
+Secondary_Email=input("What is the students secondary email?")
+for student in students:
+   if Secondary_Email == student['Email'[1]]:
+       print(student['CPSID'])
+       print("This works.")
