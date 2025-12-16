@@ -59,43 +59,39 @@
 
 import student_data2
 students = student_data2.students
-id=input("What is the students cps id?")
-for student in students:
-   if id == student['CPSID']:
-       print(student['CPSID'])
-       print("This works.")
-First_Name=input("What is the students first name?")
-for student in students:
-   if id == student['Fname']:
-       print(student['Fname'])
-       print("This works.")
-Last_Name=input("What is the students last name?")
-for student in students:
-   if Last_Name == student['LName']:
-       print(student['LName'])
-       print("This works.")
-Middle_Name=input("What is the students middle name?")
-for student in students:
-   if Middle_Name == student['MName']:
-       print(student['MName'])
-       print("This works.")
-Homeroom=input("What is the students homeroom?")
-for student in students:
-   if Homeroom == student ['HR']:
-       print(student['HR'])
-       print("This works.")
-Grade=input("What is the students name")
-for student in students:
-   if Grade == student['GL']:
-       print(student['GL'])
-       print("This works.")
-Primary_Email=input("What is the  students primary email?")
-for student in students:
-   if Primary_Email == student['Email'[0]]:
-       print(student['CPSID'])
-       print("This works.")
-Secondary_Email=input("What is the students secondary email?")
-for student in students:
-   if Secondary_Email == student['Email'[1]]:
-       print(student['CPSID'])
-       print("This works.")
+print("---Student Registration Form---")
+cps_id = input("Enter CPS ID of student: ")
+fname = input("Enter First Name of student: ")
+lname = input("Enter Last Name of student: ")
+mname = input("Enter Middle Name of student: ")
+hr = input("Enter Homeroom of student: ")
+gl = input("Enter Grade Level of student: ")
+primary_email = input("Enter Primary Email of student: ")
+secondary_email = input("Enter Secondary Email of student: ")
+
+combo_name = f"{lname}, {fname}"
+print("---Processing Registration---")
+is_duplicate = False
+
+for student in student_data2.students:
+    if cps_id == student["CPSID"]:
+        is_duplicate = True
+        print("CPS ID already exsists. Student won't be added.")
+        break
+
+if not is_duplicate:
+    new_student = {
+        "CPSID": cps_id,
+        "Combo,Name": combo_name,
+        "LName": lname,
+        "FName": fname,
+        "MName": mname,
+        "HR": hr,
+        "GL": gl,
+        "Email": [primary_email, secondary_email]
+    }
+student_data2.students.append(new_student)
+print("Student has been added successfully.")
+print("---Registration Complete---")
+print("Total students: ",len(student_data2.students))
+print(new_student)
