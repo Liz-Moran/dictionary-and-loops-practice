@@ -76,7 +76,7 @@ is_duplicate = False
 for student in student_data2.students:
     if cps_id == student["CPSID"]:
         is_duplicate = True
-        print("CPS ID already exsists. Student won't be added.")
+        print("CPS ID already exists. Student won't be added.")
         break
 
 if not is_duplicate:
