@@ -59,39 +59,67 @@
 
 import student_data2
 students = student_data2.students
-print("---Student Registration Form---")
-cps_id = input("Enter CPS ID of student: ")
-fname = input("Enter First Name of student: ")
-lname = input("Enter Last Name of student: ")
-mname = input("Enter Middle Name of student: ")
-hr = input("Enter Homeroom of student: ")
-gl = input("Enter Grade Level of student: ")
-primary_email = input("Enter Primary Email of student: ")
-secondary_email = input("Enter Secondary Email of student: ")
+def lookup_student():
+    print("---Look Up--- ")
+    search_name = input("Enter student's full name: ")
+    found = False
 
-combo_name = f"{lname}, {fname}"
-print("---Processing Registration---")
-is_duplicate = False
+    for student in students:
+        if student ['Combo,Name'].lower() == search_name.lower():
+            print("Student found:")
+            print(f"CPS ID: {student['CPSID']}")
+            print(f"Homeroom: {student['HR']}")
+            print(f"Grade Level: {student['GL']}")
+            print(f"Primary Email: {student['Email'][0]}")
+            found = True
+            break
+    if not found:
+        print("Student not found.")
+def register_student():
+    print("---Student Registration Form---")
+    cps_id = input("Enter CPS ID of student: ")     
+    fname = input("Enter First Name of student: ")
+    lname = input("Enter Last Name of student: ")
+    mname = input("Enter Middle Name of student: ")
+    hr = input("Enter Homeroom of student: ")
+    gl = input("Enter Grade Level of student: ")
+    primary_email = input("Enter Primary Email of student: ")
+    secondary_email = input("Enter Secondary Email of student: ")
 
-for student in student_data2.students:
-    if cps_id == student["CPSID"]:
-        is_duplicate = True
-        print("CPS ID already exists. Student won't be added.")
+    combo_name = f"{lname}, {fname}"
+    is_duplicate = False
+    for student in students:
+        if student['CPSID'] == cps_id:
+            is_duplicate = True
+            print("Error: CPS ID already exists.")
+            break
+    if not is_duplicate:
+        new_student = {
+             "CPSID": cps_id,
+             "Combo,Name": combo_name,
+             "LName": lname,
+             "FName": fname,
+             "MName": mname,
+             "HR": hr,
+             "GL": gl,
+             "Email": [primary_email, secondary_email]
+     }
+    students.append(new_student)
+    print("Student has been added successfully.")
+    print(f"Total students: {len(students)}")
+while True:
+    print("---Student Lookup Tool---")
+    print("1. Look Up Student")
+    print("2. Register New Student")
+    print("3. Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        lookup_student()
+    elif choice == "2":
+        register_student()
+    elif choice == "3":
+        print("Exiting the program.")
         break
-
-if not is_duplicate:
-    new_student = {
-        "CPSID": cps_id,
-        "Combo,Name": combo_name,
-        "LName": lname,
-        "FName": fname,
-        "MName": mname,
-        "HR": hr,
-        "GL": gl,
-        "Email": [primary_email, secondary_email]
-    }
-student_data2.students.append(new_student)
-print("Student has been added successfully.")
-print("---Registration Complete---")
-print("Total students: ",len(student_data2.students))
-print(new_student)
+    else:
+        print("Invalid choice. Please try again.")
